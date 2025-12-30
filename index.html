@@ -1,14 +1,14 @@
-﻿<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Sitio web de ds3comunicaciones, líder en soluciones de redes y comunicaciones. Ofrecemos productos para WiFi y extensión de señal." />
+    content="Cable UTP AMP Categoría 6 Chaqueta CMR 23AWG 6-1427200-4. Cable de red Cat 6 de alta calidad para aplicaciones Gigabit Ethernet." />
   <meta name="keywords"
-    content="En Peru, ANTENA HYPERLINK, internet inalambrico,ANTENA PARA INTERNET,Antena Omnidireccional,Antena de panel, Antena 5.8 UAP-AC-EDU AccessPoint UAP-AC-EDU para interior de Doble banda 5GHz y 2.4 GHz , 802.11a/b/g/n/ac, MIMO3x3 ( 2,4 GHz ) 22dBm 450 Mbps , MIMO3x3 ( 5 GHz) 22dBm / 1300Mbps, tres Antenas de doble banda de 2,4 GHz : 3 dBi , 5 GHz : 3 dBi / 01 puerto Ethernet 10/100/1000 Mbps, PoE Pasivo 48v o 802.3at PoE+ compatibles, Incluye PoE 48V 0.5A Gige , software y kit para montaje, marca UBiQuiTi" />
+    content="Cable UTP AMP, Categoría 6, Cat 6, Cable de red, Gigabit Ethernet, 6-1427200-4, CMR, 23AWG" />
   <meta name="author" content="ds3comunicaciones" />
-  <!-- tailwin cdn -->
+  <!-- tailwind cdn -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- fontawesome cdn -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -16,139 +16,417 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- css  -->
   <link rel="stylesheet" href="./css/style.css" />
-  <!-- carga del navbar -->
-  <script src="./js/nav.js"></script>
+  <!-- Estilos dinámicos -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+    
+    .anim {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .none {
+      display: none;
+    }
+    
+    .-translate-x-full {
+      transform: translateX(-100%);
+    }
+    
+    #mobile-menu {
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    #menu-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  </style>
+  <!-- Scripts para navbar -->
+  <script>
+    // Inicializar funciones del navbar (ya está incluido en el HTML)
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeNavbar();
+      initializeMobileMenu();
+      initializeSearchModal();
+    });
+
+    function initializeNavbar() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      if (mobileMenuButton) {
+        const icon = mobileMenuButton.querySelector('i');
+        mobileMenuButton.addEventListener('click', function() {
+          if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+          }
+        });
+      }
+    }
+
+    function initializeMobileMenu() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const closeMenuButton = document.getElementById('close-menu');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuOverlay = document.getElementById('menu-overlay');
+
+      if (!mobileMenuButton || !mobileMenu) return;
+
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.remove('-translate-x-full');
+        mobileMenu.classList.remove('hidden');
+        if (menuOverlay) menuOverlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        
+        const icon = mobileMenuButton.querySelector('i');
+        if (icon) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        }
+      });
+
+      if (closeMenuButton) {
+        closeMenuButton.addEventListener('click', closeMobileMenu);
+      }
+
+      if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMobileMenu);
+      }
+
+      function closeMobileMenu() {
+        mobileMenu.classList.add('-translate-x-full');
+        if (menuOverlay) menuOverlay.classList.add('hidden');
+        document.body.style.overflow = '';
+        
+        const icon = mobileMenuButton.querySelector('i');
+        if (icon) {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      }
+    }
+
+    function initializeSearchModal() {
+      const searchModal = document.getElementById('search-modal');
+      const searchButton = document.getElementById('search-button');
+      const mobileSearchButton = document.getElementById('mobile-search-button');
+      const closeSearch = document.getElementById('close-search');
+
+      function openSearchModal() {
+        if (searchModal) {
+          searchModal.classList.remove('none');
+          searchModal.classList.add('anim');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeSearchModal() {
+        if (searchModal) {
+          searchModal.classList.add('none');
+          document.body.style.overflow = '';
+        }
+      }
+
+      if (searchButton) searchButton.addEventListener('click', openSearchModal);
+      if (mobileSearchButton) mobileSearchButton.addEventListener('click', openSearchModal);
+      if (closeSearch) closeSearch.addEventListener('click', closeSearchModal);
+
+      if (searchModal) {
+        searchModal.addEventListener('click', function(e) {
+          if (e.target === searchModal) {
+            closeSearchModal();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && searchModal && !searchModal.classList.contains('none')) {
+          closeSearchModal();
+        }
+      });
+    }
+  </script>
 
   <!-- titulo de la pagina -->
   <title>
-    Switch Cisco Catalyst 9200L C9200L-24T, capa L3 con 24 puertos Gigabit, 04 puertos para fibra SFP, Stacking hasta 08
-    equipos, Rackeable, CISCO C9200L-24T-4G-E
+    Cable UTP AMP Categoría 6 Chaqueta CMR 23AWG 6-1427200-4 - ds3comunicaciones
   </title>
 </head>
 
 <body>
+  <!-- NAVBAR INCLUIDO DIRECTAMENTE (funciona con file:// y http://) -->
+  <nav class="bg-white w-full shadow-md border">
+    <div class="container mx-auto px-4">
+      <!-- Desktop Navbar -->
+      <div class="hidden lg:flex justify-between items-center py-4">
+        <!-- Logo y nombre -->
+        <div class="flex items-center gap-3">
+          <img
+            src="https://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg"
+            alt="DS3 Comunicaciones"
+            class="h-12"
+          />
+          <img
+            src="https://www.ds3comunicaciones.com/cisco/images/cisco-gif.gif"
+            alt="Cisco"
+            class="h-10"
+          />
+        </div>
+
+        <!-- Info de contacto -->
+        <div class="flex items-center space-x-6 text-gray-700">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-phone-alt text-blue-600"></i>
+            <div class="text-sm">
+              <p class="font-semibold">533-4339</p>
+              <p class="font-semibold text-gray-600">994-428-965</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-phone-alt text-blue-600"></i>
+            <div class="text-sm">
+              <p class="font-semibold">99653-3223</p>
+              <p class="font-semibold text-gray-600">937-514-867</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-envelope text-blue-600"></i>
+            <a href="mailto:netperu100@hotmail.com" class="text-sm font-semibold hover:text-blue-600 transition-colors">
+              netperu100@hotmail.com
+            </a>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-map-marker-alt text-blue-600"></i>
+            <span class="text-sm font-semibold">Lima, PERÚ</span>
+          </div>
+        </div>
+
+        <!-- Botón de búsqueda -->
+        <div class="flex items-center">
+          <button
+            id="search-button"
+            class="p-2.5 rounded-lg hover:bg-gray-100 transition-colors border border-gray-200"
+          >
+            <i class="fas fa-search text-gray-700"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navbar -->
+      <div class="lg:hidden flex flex-col">
+        <!-- navbar superior  -->
+        <div class="flex justify-between items-center py-3 px-2 border-b border-gray-200">
+          <!-- div izquierdo -->
+          <div class="flex items-center gap-2">
+            <!-- boton hamburgesa -->
+            <button
+              id="mobile-menu-button"
+              class="p-2.5 rounded-lg hover:bg-gray-100 transition-colors"
+            >
+              <i class="fas fa-bars text-gray-700 text-lg"></i>
+            </button>
+
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+              <img
+                src="https://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg"
+                alt="DS3 Comunicaciones"
+                class="h-9 md:h-10"
+              />
+              <img
+                src="http://www.ds3comunicaciones.com/cisco/images/logo-cisco.gif"
+                alt="Cisco"
+                class="h-9 md:h-10"
+              />
+            </div>
+          </div>
+
+          <!-- Botón buscar -->
+          <button
+            id="mobile-search-button"
+            class="p-2.5 rounded-lg hover:bg-gray-100 transition-colors border border-gray-300 flex items-center justify-center"
+          >
+            <i class="fas fa-search text-gray-700"></i>
+          </button>
+        </div>
+
+        <!-- navbar inferior - Información de contacto -->
+        <div class="bg-gray-50 py-2.5 px-3 border-b border-gray-200">
+          <div class="flex flex-wrap items-center gap-3 text-xs">
+            <div class="flex items-center gap-1.5">
+              <i class="fas fa-phone-alt text-gray-600 text-xs"></i>
+              <a href="tel:996533223" class="text-gray-700 font-medium hover:text-blue-600">996 533 223</a>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <i class="fas fa-phone-alt text-gray-600 text-xs"></i>
+              <a href="tel:994428965" class="text-gray-700 font-medium hover:text-blue-600">994 428 965</a>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <i class="fas fa-envelope text-gray-600 text-xs"></i>
+              <a href="mailto:netperu100@hotmail.com" class="text-gray-700 font-medium hover:text-blue-600 truncate">netperu100@hotmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div
+      id="mobile-menu"
+      class="fixed top-0 left-0 h-full w-80 bg-white shadow-xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
+    >
+      <!-- Botón de cerrar -->
+      <div class="flex justify-end p-4">
+        <button id="close-menu" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times text-2xl"></i>
+        </button>
+      </div>
+
+      <!-- Contenido del menú -->
+      <div class="px-6 pb-8">
+        <div class="space-y-4">
+          <a href="https://www.ds3comunicaciones.com/AMP/precios_amp.html" target="_blank"
+            class="block py-2 font-medium text-blue-500 hover:text-blue-600 border-b">
+            Lista de precios AMP
+          </a>
+          <a href="https://www.ds3comunicaciones.com/cisco/precios_cisco.html" target="_blank"
+            class="block py-2 font-medium text-blue-500 hover:text-blue-600 border-b">
+            Lista de precios CISCO
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overlay para menú móvil -->
+    <div
+      id="menu-overlay"
+      class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+    ></div>
+  </nav>
+
+  <!-- Modal de Búsqueda -->
+  <section
+    id="search-modal"
+    class="fixed top-0 left-0 right-0 bottom-0 h-screen w-full px-5 pt-7 anim none z-50"
+    style="background-color: rgba(0, 0, 0, 0.575)"
+  >
+    <div class="max-w-[600px] mx-auto flex gap-2 justify-between">
+      <form
+        name="form1"
+        method="get"
+        action="https://www.ds3comunicaciones.com/find.html"
+        class="mx-auto flex items-center justify-between px-1 border w-full rounded-md bg-white"
+        enctype="application/x-www-form-urlencoded"
+      >
+        <div class="flex items-center w-full">
+          <i class="fa-solid fa-magnifying-glass ps-2 text-gray-500"></i>
+          <input
+            name="q"
+            type="text"
+            class="outline-none px-3 py-3 w-full"
+            placeholder="Buscar..."
+            required
+          />
+        </div>
+        <input
+          type="hidden"
+          name="cx"
+          value="partner-pub-9265252540298851:f2549i3fi60"
+        />
+        <input type="hidden" name="cof" value="FORID:10" />
+        <input type="hidden" name="ie" value="ISO-8859-1" />
+        <div
+          class="cursor-pointer px-3 py-1 rounded-md text-sm relative flex items-center bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+        >
+          <input
+            name="sa"
+            type="submit"
+            value="Buscar"
+            class="cursor-pointer bg-transparent border-none text-white"
+          />
+          <i class="fa-solid fa-caret-right ml-1"></i>
+        </div>
+      </form>
+      <div class="mx-auto text-end">
+        <button
+          id="close-search"
+          class="cursor-pointer text-white text-2xl flex items-center justify-center w-[35px] h-[42px] rounded-md font-medium hover:bg-gray-700 transition-colors"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- SUBMENU DE MARCA DEPENDIENDO DEL PRODUCTO -->
-  <nav class="bg-white border-b border-gray-200 shadow-sm">
+  <nav class="bg-gradient-to-r from-gray-50 to-white border-b border-gray-300 shadow-md">
     <div class="relative">
       <!-- Contenedor con scroll horizontal -->
-      <div class="nav-container flex justify-evenly overflow-x-auto md:py-2 px-4 space-x-2 scrollbar-hide">
+      <div class="nav-container flex justify-center md:justify-start overflow-x-auto md:py-3 px-4 space-x-3 scrollbar-hide">
         <!-- Item 1 -->
-        <a href="https://www.ds3comunicaciones.com/cisco/catalys_9200l.html"
-          class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
-          <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/Switch Catalyst.ico" class="nav-icon max-h-full max-w-full" alt="Switch Catalyst" />
+        <a href="https://www.ds3comunicaciones.com/AMP/index.html"
+          class="nav-item flex items-center gap-2 px-4 py-2 rounded-lg min-w-fit flex-shrink-0 bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 transition-all duration-200 shadow-sm hover:shadow-md">
+          <div class="icon-container h-7 w-7 flex items-center justify-center bg-white rounded p-1">
+            <img src="http://www.ds3comunicaciones.com/belden/images/amp_logo2-91x20.jpg" class="nav-icon max-h-full max-w-full object-contain" alt="AMP" />
           </div>
-          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Switch Catalyst</span>
-        </a>
-
-        <!-- Item 2 -->
-        <a href="https://www.ds3comunicaciones.com/cisco/bussines_sg350.html"
-          class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
-          <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/Cisco Business.ico" class="nav-icon max-h-full max-w-full" alt="Cisco Business" />
-          </div>
-          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Cisco Business</span>
-        </a>
-
-        <!-- Item 3 -->
-        <a href="https://www.ds3comunicaciones.com/cisco/precios_cisco_switch_industrial_b.html"
-          class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
-          <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/Switch Industrial.ico" class="nav-icon max-h-full max-w-full" alt="Switch Industrial" />
-          </div>
-          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Switch Industrial</span>
-        </a>
-
-        <!-- Item 4 -->
-        <a href="https://www.ds3comunicaciones.com/cisco/precios_cisco_access_point_b.html"
-          class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
-          <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M21 42C32.598 42 42 32.598 42 21C42 9.40202 32.598 0 21 0C9.40202 0 0 9.40202 0 21C0 32.598 9.40202 42 21 42Z"
-                fill="white" stroke="black" stroke-width="2" />
-
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M27 21C27 24.3137 24.3137 27 21 27C17.6863 27 15 24.3137 15 21C15 17.6863 17.6863 15 21 15C24.3137 15 27 17.6863 27 21Z"
-                fill="black" />
-
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M29 21C29 25.4183 25.4183 29 21 29C16.5817 29 13 25.4183 13 21C13 16.5817 16.5817 13 21 13C25.4183 13 29 16.5817 29 21Z"
-                fill="white" stroke="black" stroke-width="2" />
-            </svg>
-          </div>
-          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Aironet</span>
-        </a>
-
-        <!-- Item 5 -->
-        <a href="https://www.ds3comunicaciones.com/cisco/precios_cisco_telefonos_b.html"
-          class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
-          <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/Télefono.ico" class="nav-icon max-h-full max-w-full" alt="Teléfono" />
-          </div>
-          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Teléfono</span>
-        </a>
-
-        <!-- Item 6 -->
-        <a href="https://ds3comunicaciones.com/cisco/precios_cisco_meraki_b.html"
-          class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
-          <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/mariakii.ico" class="nav-icon max-h-full max-w-full" alt="Meraki" />
-          </div>
-          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Meraki</span>
-        </a>
-
-        <!-- Item 7 -->
-        <a href="#" class="nav-item flex items-center p-1.5 rounded-lg min-w-fit flex-shrink-0 space-x-1.5">
-          <div class="icon-container h-6 w-6 flex items-center justify-center">
-            <img src="./icons/Transceiver.ico" class="nav-icon max-h-full max-w-full" alt="Transceiver" />
-          </div>
-          <span class="text-xs font-medium text-gray-600 whitespace-nowrap">Transceiver</span>
+          <span class="text-sm font-semibold text-gray-700 whitespace-nowrap">AMP</span>
         </a>
       </div>
     </div>
   </nav>
 
   <!-- CONTENIDO DEL PRODUCTO -->
-  <main class="">
+  <main class="bg-gradient-to-b from-gray-50 to-white min-h-screen">
     <!-- CASCADA DE NAVEGACIÓN RESPONSIVE "MARCA | PRODUCTO | NOMBRE" -->
     <div
-      class="border px-3 py-2 text-xs md:text-sm text-slate-600 flex flex-nowrap items-center gap-1 overflow-x-auto scrollbar-hide whitespace-nowrap">
-      <a href="https://www.ds3comunicaciones.com/index.html" class="flex-shrink-0 hover:text-blue-600">
-        <i class="fa-solid fa-house text-[0.9em]"></i>
+      class="bg-white border-b border-gray-200 px-4 md:px-6 py-3 text-xs md:text-sm text-slate-600 flex flex-nowrap items-center gap-2 overflow-x-auto scrollbar-hide whitespace-nowrap shadow-sm">
+      <a href="https://www.ds3comunicaciones.com/index.html" 
+        class="flex-shrink-0 hover:text-blue-600 transition-colors p-1.5 rounded hover:bg-blue-50">
+        <i class="fa-solid fa-house text-base"></i>
       </a>
-      <span class="text-gray-400 flex-shrink-0"><i class="fa-solid fa-angle-right text-[0.8em]"></i></span>
-      <a href="http://www.ds3comunicaciones.com/cisco/index.html"
-        class="flex-shrink-0 hover:underline hover:text-blue-600">
-        Cisco
+      <span class="text-gray-400 flex-shrink-0"><i class="fa-solid fa-angle-right text-xs"></i></span>
+      <a href="https://www.ds3comunicaciones.com/AMP/index.html"
+        class="flex-shrink-0 hover:underline hover:text-blue-600 transition-colors px-2 py-1 rounded hover:bg-blue-50">
+        AMP
       </a>
-      <span class="text-gray-400 flex-shrink-0"><i class="fa-solid fa-angle-right text-[0.8em]"></i></span>
-      <a href="http://ds3comunicaciones.com/cisco/catalyst.html"
-        class="flex-shrink-0 hover:underline hover:text-blue-600">
-        Switch Catalyst
+      <span class="text-gray-400 flex-shrink-0"><i class="fa-solid fa-angle-right text-xs"></i></span>
+      <a href="https://www.ds3comunicaciones.com/AMP/precios_amp.html"
+        class="flex-shrink-0 hover:underline hover:text-blue-600 transition-colors px-2 py-1 rounded hover:bg-blue-50">
+        Cable de red Cat 6
       </a>
-      <span class="text-gray-400 flex-shrink-0"><i class="fa-solid fa-angle-right text-[0.8em]"></i></span>
-      <span class="text-slate-800 font-medium flex-shrink-0">
-        C9200L-24T-4G-E
+      <span class="text-gray-400 flex-shrink-0"><i class="fa-solid fa-angle-right text-xs"></i></span>
+      <span class="text-slate-900 font-bold flex-shrink-0 px-2 py-1 bg-blue-50 rounded text-sm">
+        6-1427200-4
       </span>
     </div>
 
-    <!-- CONTENT DE 3 COMULNAS SIDEBAR DERECHO - IZQUIERDO Y INFORMACION DE PRODUCTO -->
-    <div class="mx-auto border">
-      <div class="flex flex-col md:flex-row md:justify-evenly  mx-auto">
+    <!-- CONTENT DE 3 COLUMNAS SIDEBAR DERECHO - IZQUIERDO Y INFORMACION DE PRODUCTO -->
+    <div class="mx-auto">
+      <div class="flex flex-col md:flex-row md:justify-evenly mx-auto py-6 px-4">
         <!-- SIDEBAR DE MARCAS (oculto en móvil) -->
         <aside
-          class="hidden lg:block bg-white p-2 rounded-lg shadow-md w-full md:w-48 lg:w-56 h-[80vh] overflow-y-auto scrollbar-hide">
+          class="hidden lg:block bg-white p-4 rounded-xl shadow-lg border border-gray-200 w-full md:w-48 lg:w-56 h-[80vh] overflow-y-auto scrollbar-hide">
           <!-- Título -->
-          <h2 class="text-lg font-bold text-gray-800 mb-4 pb-2 border-b">
+          <h2 class="text-lg font-bold text-gray-800 mb-4 pb-3 border-b-2 border-blue-200 flex items-center">
+            <i class="fas fa-tags text-blue-600 mr-2"></i>
             Nuestras Marcas
           </h2>
 
           <!-- Contenedor de marcas - responsive -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-1 ">
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-1">
+            <!-- Marca AMP -->
+            <a href="https://www.ds3comunicaciones.com/AMP/index.html"
+              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
+              <img src="http://www.ds3comunicaciones.com/belden/images/amp_logo2-91x20.jpg" alt="AMP"
+                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
+            </a>
+
             <!-- Marca Alfa -->
             <a href="https://www.ds3comunicaciones.com/alfa/index.html"
-              class="flex items-center justify-center  rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
+              class="flex items-center justify-center rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
               <img src="http://www.ds3comunicaciones.com/belden/images/ALFA_logo1.gif" alt="Alfa"
                 class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
             </a>
@@ -164,13 +442,6 @@
             <a href="https://www.ds3comunicaciones.com/andrew/index.html"
               class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
               <img src="http://www.ds3comunicaciones.com/andrew/images/logo_andrew.jpg" alt="Andrew"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
-            <!-- Marca AMP -->
-            <a href="https://www.ds3comunicaciones.com/AMP/index.html"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/belden/images/amp_logo2-91x20.jpg" alt="AMP"
                 class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
             </a>
 
@@ -195,648 +466,303 @@
                 class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
             </a>
 
-            <!-- Marca Dahua -->
-            <a href="https://www.ds3comunicaciones.com/dahua/index.html"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/dahua/images/dahua_logo.jpg" alt="Dahua"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
             <!-- Marca D-Link -->
             <a href="https://www.ds3comunicaciones.com/dlink/index.html"
               class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
               <img src="http://www.ds3comunicaciones.com/belden/images/D-Link_Logo-100x26.jpg" alt="D-Link"
                 class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
             </a>
-
-            <!-- Marca Dixon -->
-            <a href="https://www.ds3comunicaciones.com/dixon/index.html"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/belden/images/dixon_logo-100x19.jpg" alt="Dixon"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
-            <!-- Marca FibreFab -->
-            <a href="https://www.ds3comunicaciones.com/FibreFab/index.html"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/FibreFab/images/logo_fibrefab.png" alt="FibreFab"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
-            <!-- Marca LanPro -->
-            <a href="https://www.ds3comunicaciones.com/lanpro/index.html"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/lanpro/images/lanpro_logo.jpg" alt="LanPro"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
-            <!-- Marca L-Com -->
-            <a href="https://www.ds3comunicaciones.com/l-com/"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/sitebuilder/images/lcom_logo-100x23.jpg" alt="L-Com"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
-            <!-- Marca MikroTik -->
-            <a href="https://www.ds3comunicaciones.com/mikrotik/index.html"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/belden/images/mikrotik_logo-100x24.png" alt="MikroTik"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
-            <!-- Marca Panduit -->
-            <a href="https://www.ds3comunicaciones.com/panduit/index.html"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/panduit/images/panduit_logo.jpg" alt="Panduit"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
-            <!-- Marca Satra -->
-            <a href="https://www.ds3comunicaciones.com/satra/index.html"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/satra/images/satra.JPG" alt="Satra"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
-            <!-- Marca Siemon -->
-            <a href="https://www.ds3comunicaciones.com/siemon/index.html"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/siemon/images/siemon_logo1.GIF" alt="Siemon"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
-            <!-- Marca TP-Link -->
-            <a href="https://www.ds3comunicaciones.com/tplink/"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/belden/images/tp-link_logo-100x13.jpg" alt="TP-Link"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
-            <!-- Marca Trendnet -->
-            <a href="https://www.ds3comunicaciones.com/trendnet/"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/belden/images/trendnet_logo-100x20.jpg" alt="Trendnet"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
-
-            <!-- Marca Ubiquiti -->
-            <a href="https://www.ds3comunicaciones.com/ubiquiti/index.html"
-              class="flex items-center justify-center p-1 rounded-md hover:bg-gray-100 transition-all hover:-translate-y-0.5">
-              <img src="http://www.ds3comunicaciones.com/belden/images/ubnt_logo-100x47.png" alt="Ubiquiti"
-                class="max-w-[100px] max-h-8 w-auto h-auto object-contain" />
-            </a>
           </div>
         </aside>
 
         <!-- CONTENIDO PRINCIPAL DE PRODUCTOS (siempre visible) -->
-        <div class="w-full lg:w-4/6 bg-white  rounded-lg shadow">
-          <div class="mx-auto max-w-[1200px] w-full">
+        <div class="w-full lg:w-4/6 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+          <div class="mx-auto max-w-[1200px] w-full px-4 md:px-6 py-6">
             <!-- Contenedor principal del producto -->
-            <div id="information-section" class="mt-5 flex flex-col lg:flex-row gap-6 flex-wrap">
-              <!-- Sección de información  e imagenes-->
-              <div class="w-full flex flex-col lg:flex-row gap-6">
+            <div id="information-section" class="flex flex-col lg:flex-row gap-8 flex-wrap">
+              <!-- Sección de información e imagenes-->
+              <div class="w-full flex flex-col lg:flex-row gap-8">
                 <!-- Sección de imágenes -->
-                <div class="lg:w-1/2">
+                <div class="lg:w-1/2 w-full">
                   <!-- Imagen principal -->
-                  <div class="bg-white rounded-lg shadow-sm p-4">
-                    <div class="w-full h-[400px] flex items-center justify-center overflow-hidden">
+                  <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl shadow-md p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-full h-[350px] md:h-[450px] flex items-center justify-center overflow-hidden bg-white rounded-lg shadow-inner">
                       <img id="img_main"
-                        src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24T-4G-E_front.jpg"
-                        alt="Switch Catalyst 2960" class="max-h-full max-w-full object-contain cursor-pointer"
+                        src="./assets/image.png"
+                        alt="Cable UTP AMP Categoría 6" 
+                        class="max-h-full max-w-full object-contain cursor-zoom-in transform hover:scale-105 transition-transform duration-300"
                         onclick="viewImage(this.src)" />
                     </div>
 
                     <!-- Miniaturas -->
-                    <div class="flex gap-3 mt-4 justify-center">
-                      <div class="w-20 h-20 border rounded p-1 cursor-pointer hover:border-blue-400 transition">
-                        <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24T-4G-E_front.jpg"
-                          alt="Vista 1" class="w-full h-full object-contain" onclick="toExchangeImage(this)" />
-                      </div>
-                      <div class="w-20 h-20 border rounded p-1 cursor-pointer hover:border-blue-400 transition">
-                        <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24T-4G-E_front_large.jpg"
-                          alt="Vista 2" class="w-full h-full object-contain" onclick="toExchangeImage(this)" />
-                      </div>
-                      <div class="w-20 h-20 border rounded p-1 cursor-pointer hover:border-blue-400 transition">
-                        <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24T-4G-E_back.jpg"
-                          alt="Vista 2" class="w-full h-full object-contain" onclick="toExchangeImage(this)" />
+                    <div class="flex gap-3 mt-6 justify-center flex-wrap">
+                      <div class="w-24 h-24 border-2 border-gray-300 rounded-lg p-2 cursor-pointer hover:border-blue-500 hover:shadow-md transition-all duration-200 bg-white">
+                        <img src="../assets/image.png"
+                          alt="Cable UTP AMP" class="w-full h-full object-contain" onclick="toExchangeImage(this)" />
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <!-- Sección de información -->
-                <div class="lg:w-full px-1">
-                  <div class="bg-white rounded-lg shadow-sm">
-                    <h1 class="md:text-md font-bold text-black mb-2 ">
-                      Switch Cisco Catalyst 9200L C9200L-24T, capa L3 con 24 puertos Gigabit, 04 puertos para fibra SFP
-                      C9200L-24T-4G-E
+                <div class="lg:w-1/2 w-full">
+                  <div class="bg-white rounded-xl">
+                    <!-- Badge de categoría -->
+                    <div class="mb-4">
+                      <span class="inline-block bg-gradient-to-r from-blue-500 to-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+                        <i class="fas fa-certificate mr-1"></i>CATEGORÍA 6
+                      </span>
+                    </div>
+
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 leading-tight">
+                      Cable UTP AMP Categoría 6<br>
+                      <span class="text-xl text-gray-600 font-normal">Chaqueta CMR 23AWG 6-1427200-4</span>
                     </h1>
 
-                    <div class="mb-6">
-                      <span class="text-2xl font-bold text-blue-600">U$ 1,195</span>
+                    <!-- Precio destacado -->
+                    <div class="mb-8 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200 shadow-sm">
+                      <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-4 mb-4">
+                        <div class="flex items-baseline gap-2">
+                          <span class="text-4xl md:text-5xl font-bold text-blue-600">U$ 187.00</span>
+                          <span class="text-lg text-gray-600 font-medium">por rollo</span>
+                        </div>
+                      </div>
                       <a href="https://www.ds3comunicaciones.com/pedido.html"
-                        class="mt-3 inline-flex items-center gap-1 bg-blue-600 text-white font-medium rounded-md px-4 py-2 hover:bg-blue-700 transition"
-                        target="_blank">
-                        <i class="fas fa-shopping-cart"></i>
-                        Comprar ahora
+                        class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg px-6 py-3 hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 w-full sm:w-auto justify-center">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <span>Comprar ahora</span>
                       </a>
                     </div>
 
-                    <div class="border-t pt-4">
-                      <h3 class="font-semibold text-md mb-3">
-                        Especificaciones técnicas:
-                      </h3>
-                      <ul class="space-y-2 text-gray-700">
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>24 Puertos Gigabit 10/100/1000</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>04 puertos 1G para fibra SFP</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Switching capacity 56 Gbps</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Network Essentials</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Switch capa L3 full (Layer 3)</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Switch capacity with Stacking 136 Gbps</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Forwarding rate 41.67 Mpps</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Stacking bandwidth 80 Gbps</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Soporta stacking hasta 08 equipos</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Total number of MAC addresses 16,000</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Memoria DRAM 2 GB</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Flash memory 4 GB</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>VLAN IDs 4096</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Jumbo frames 9198 bytes</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Soporta ACLs, DHCP, EIGRP, OSPF, IGMP vs1/2/3</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Soporte IPv4/IPv6</span>
-                        </li>
-                        <li class="flex items-start text-[#0D274D]">
-                          <i class="fa-solid fa-circle text-[10px] text-[#0D274D] mt-1.5 mr-2 text"></i>
-                          <span>Montaje en rack (Rack montable)</span>
-                        </li>
-                      </ul>
+                    <!-- Características destacadas -->
+                    <div class="mb-6 grid grid-cols-2 gap-3">
+                      <div class="bg-gray-50 rounded-lg p-3 border border-gray-200 text-center">
+                        <i class="fas fa-bolt text-blue-600 text-2xl mb-2"></i>
+                        <p class="text-xs font-semibold text-gray-700">600 MHz</p>
+                        <p class="text-xs text-gray-500">Frecuencia</p>
+                      </div>
+                      <div class="bg-gray-50 rounded-lg p-3 border border-gray-200 text-center">
+                        <i class="fas fa-ruler text-blue-600 text-2xl mb-2"></i>
+                        <p class="text-xs font-semibold text-gray-700">1000ft</p>
+                        <p class="text-xs text-gray-500">Longitud</p>
+                      </div>
+                      <div class="bg-gray-50 rounded-lg p-3 border border-gray-200 text-center">
+                        <i class="fas fa-network-wired text-blue-600 text-2xl mb-2"></i>
+                        <p class="text-xs font-semibold text-gray-700">23AWG</p>
+                        <p class="text-xs text-gray-500">Calibre</p>
+                      </div>
+                      <div class="bg-gray-50 rounded-lg p-3 border border-gray-200 text-center">
+                        <i class="fas fa-palette text-blue-600 text-2xl mb-2"></i>
+                        <p class="text-xs font-semibold text-gray-700">3 Colores</p>
+                        <p class="text-xs text-gray-500">Disponibles</p>
+                      </div>
                     </div>
 
-                    <div class="mt-6">
-                      <h3 class="font-semibold text-lg mb-3">
-                        Download:
+                    <div class="border-t border-gray-200 pt-6">
+                      <h3 class="font-bold text-lg mb-4 flex items-center text-gray-800">
+                        <i class="fas fa-info-circle text-blue-600 mr-2"></i>
+                        Descripción
+                      </h3>
+                      <div class="text-gray-700 text-sm md:text-base space-y-3">
+                        <p class="leading-relaxed">
+                          Los Cables AMP NetConnect categoría 6 exceden los requerimientos <strong>TIA/EIA-568-B.2-1</strong> e <strong>ISO/IEC 11801 Clase E</strong>. Además cumplen con todos los requisitos de rendimiento para aplicaciones actuales y propuestos:
+                        </p>
+                        <div class="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+                          <ul class="space-y-2">
+                            <li class="flex items-start">
+                              <i class="fas fa-check-circle text-blue-600 mt-1 mr-2 flex-shrink-0"></i>
+                              <span>Gigabit Ethernet (1000BASE-TX)</span>
+                            </li>
+                            <li class="flex items-start">
+                              <i class="fas fa-check-circle text-blue-600 mt-1 mr-2 flex-shrink-0"></i>
+                              <span>10/100BASE-TX</span>
+                            </li>
+                            <li class="flex items-start">
+                              <i class="fas fa-check-circle text-blue-600 mt-1 mr-2 flex-shrink-0"></i>
+                              <span>Token Ring, ATM 155 Mbps</span>
+                            </li>
+                            <li class="flex items-start">
+                              <i class="fas fa-check-circle text-blue-600 mt-1 mr-2 flex-shrink-0"></i>
+                              <span>Vídeo ISDN, analógico y digital</span>
+                            </li>
+                            <li class="flex items-start">
+                              <i class="fas fa-check-circle text-blue-600 mt-1 mr-2 flex-shrink-0"></i>
+                              <span>Voz analógica y digital (VoIP)</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <p class="leading-relaxed">
+                          AMP NetConnect categoría 6 cables UTP están disponibles en colores estándar (CMR), incluyendo <strong>blanco, gris y azul</strong>. El embalaje es en un reel-in-box, con el estándar <strong>1000ft libres de empalme longitudinales</strong>.
+                        </p>
+                        <p class="leading-relaxed text-sm bg-yellow-50 p-3 rounded-lg border-l-4 border-yellow-400">
+                          <i class="fas fa-shield-alt text-yellow-600 mr-2"></i>
+                          <strong>Certificación:</strong> Rendimiento verificado independientemente y caracterizado a 600 MHz. Cumplimiento de inflamabilidad NEC artículo 800 y NFPA 70, CMR (ANSI/UL 1666, IEC 332-1).
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                      <h3 class="font-bold text-lg mb-4 flex items-center text-gray-800">
+                        <i class="fas fa-download text-blue-600 mr-2"></i>
+                        Documentación
                       </h3>
                       <div class="flex flex-wrap gap-3">
-                        <!-- Ficha técnica PDF -->
-                        <a href="https://www.ds3comunicaciones.com/cisco/files/catalyst_9200.pdf"
-                          class="flex items-center gap-2 text-blue-600 hover:text-blue-800 border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50 transition"
-                          target="_blank" rel="noopener noreferrer" aria-label="Descargar ficha técnica en PDF">
-                          <i class="fas fa-file-pdf text-red-500" aria-hidden="true"></i>
-                          <span>Ficha técnica</span>
-                        </a>
-
-                        <!-- Manual PDF -->
-                        <a href="https://web.netperu100.com/cisco/catalyst/files/Catalyst_9200_manual.pdf"
-                          class="flex items-center gap-2 text-blue-600 hover:text-blue-800 border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50 transition"
-                          target="_blank" rel="noopener noreferrer" aria-label="Descargar manual en PDF">
-                          <i class="fas fa-book-open text-blue-500" aria-hidden="true"></i>
-                          <span>Manual</span>
-                        </a>
-
-                        <!-- Especificaciones PDF  a -->
-                        <a href="https://web.netperu100.com/cisco/catalyst/files/C9200L-24T-4G-E_esp.pdf"
-                          class="flex items-center gap-2 text-blue-600 hover:text-blue-800 border border-gray-200 rounded-md px-4 py-2 hover:bg-gray-50 transition"
-                          target="_blank" rel="noopener noreferrer" aria-label="Descargar especificaciones en PDF">
-                          <i class="fas fa-file-alt text-green-500" aria-hidden="true"></i>
-                          <span>Especificaciones</span>
+                        <!-- Datos Técnicos PDF -->
+                        <a href="http://www.ds3comunicaciones.com/AMP/files/6-1427200-4.pdf"
+                          class="flex items-center gap-3 text-white bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 border border-red-400 rounded-lg px-5 py-3 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+                          target="_blank" rel="noopener noreferrer" aria-label="Descargar datos técnicos en PDF">
+                          <i class="fas fa-file-pdf text-xl" aria-hidden="true"></i>
+                          <span class="font-semibold">Datos Técnicos PDF</span>
                         </a>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <!-- Sección de galería de imágenes (oculta inicialmente) -->
-            <div id="images-section" class="hidden mt-6">
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24T-4G-E_front.jpg"
-                    alt="Vista frontal"
-                    class="w-full h-64 object-contain p-4 cursor-pointer hover:opacity-90 transition"
-                    onclick="viewImage(this.src)" />
-                </div>
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24T-4G-E_front_large.jpg"
-                    alt="Vista frontal ampliada"
-                    class="w-full h-64 object-contain p-4 cursor-pointer hover:opacity-90 transition"
-                    onclick="viewImage(this.src)" />
-                </div>
-                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
-                  <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24T-4G-E_back.jpg"
-                    alt="Vista posterior"
-                    class="w-full h-64 object-contain p-4 cursor-pointer hover:opacity-90 transition"
-                    onclick="viewImage(this.src)" />
-                </div>
-              </div>
-            </div>
-
-            <!-- Controles de pestañas -->
-            <div class="flex justify-center mt-6">
-              <div class="inline-flex rounded-md shadow-sm">
-                <button id="product-tab"
-                  class="px-6 py-2 text-xs md:text-sm font-medium rounded-l-lg bg-blue-600 text-white focus:z-10 focus:outline-none">
-                  Producto
-                </button>
-                <button id="images-tab"
-                  class="px-6 py-2 text-xs md:text-sm font-medium rounded-r-lg bg-gray-100 text-gray-700 focus:z-10 focus:outline-none">
-                  Imágenes
-                </button>
               </div>
             </div>
 
             <!-- desplegables de informacion -->
-            <div class="mt-8 w-full mx-auto space-y-4">
+            <div class="mt-8 w-full mx-auto space-y-4 pb-6">
               <!-- Especificaciones Técnicas -->
-              <details open class="group border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+              <details open class="group border-2 border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white">
                 <summary
-                  class="flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 cursor-pointer transition-colors">
-                  <h3 class="font-semibold text-black flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-blue-600 transition-transform group-open:rotate-90" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
+                  class="flex items-center justify-between p-5 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 cursor-pointer transition-all duration-300">
+                  <h3 class="font-bold text-gray-800 flex items-center text-lg">
+                    <i class="fas fa-cogs text-blue-600 mr-3 text-xl"></i>
                     Especificaciones Técnicas
                   </h3>
-                  <span class="text-blue-600 text-xs text-nowrap font-medium">Ver detalles</span>
+                  <span class="text-blue-600 text-sm font-semibold flex items-center gap-2">
+                    <span class="hidden group-open:inline">Ocultar</span>
+                    <span class="group-open:hidden">Ver detalles</span>
+                    <i class="fas fa-chevron-down transform group-open:rotate-180 transition-transform duration-300"></i>
+                  </span>
                 </summary>
-                <div class="p-4 bg-white grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div class="flex items-start">
-                    <div class="flex-shrink-0 h-5 w-5 text-blue-500 mt-0.5">
-                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                    </div>
-                    <div class="ml-2">
-                      <p class="text-gray-700">
-                        <span class="font-medium">Tipo de dispositivo:</span>
-                        Cisco Catalyst 9200L C9200L-24T-4G-E, Switch capa L3 full (Layer 3)
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex-shrink-0 h-5 w-5 text-blue-500 mt-0.5">
-                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                    </div>
-                    <div class="ml-2">
-                      <p class="text-gray-700">
-                        <span class="font-medium">Conectividad:</span> 24 puertos Gigabit 10/100/1000 + 4 puertos 1G
-                        para fibra SFP
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex-shrink-0 h-5 w-5 text-blue-500 mt-0.5">
-                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                    </div>
-                    <div class="ml-2">
-                      <p class="text-gray-700">
-                        <span class="font-medium">Dimensiones:</span> 445 x 332 x 44 mm
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex-shrink-0 h-5 w-5 text-blue-500 mt-0.5">
-                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                    </div>
-                    <div class="ml-2">
-                      <p class="text-gray-700">
-                        <span class="font-medium">Peso:</span> 5.4 kg
-                      </p>
-                    </div>
-                  </div>
-                  <!-- Más especificaciones... -->
-                </div>
-              </details>
-
-              <!-- Protocolos Soportados -->
-              <details class="group border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-                <summary
-                  class="flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 cursor-pointer transition-colors">
-                  <h3 class="font-semibold text-black flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-blue-600 transition-transform group-open:rotate-90" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                    Protocolos Soportados
-                  </h3>
-                  <span class="text-blue-600 text-xs text-nowrap font-medium">Ver detalles</span>
-                </summary>
-                <div class="p-4 bg-white">
-                  <div class="space-y-3">
-                    <div class="flex items-start">
-                      <div class="flex-shrink-0 h-5 w-5 text-blue-500 mt-0.5">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                          </path>
-                        </svg>
-                      </div>
-                      <div class="ml-2">
-                        <p class="text-gray-700">
-                          <span class="font-medium">Protocolo de direccionamiento:</span>
-                          OSPF, IS-IS, BGP, EIGRP, DVMRP, PIM-SM, IGMPv3, GRE, PIM-SSM, enrutamiento IPv4 estático,
-                          enrutamiento IPv6 estático
-                        </p>
-                      </div>
-                    </div>
-                    <div class="flex items-start">
-                      <div class="flex-shrink-0 h-5 w-5 text-blue-500 mt-0.5">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
-                          </path>
-                        </svg>
-                      </div>
-                      <div class="ml-2">
-                        <p class="text-gray-700">
-                          <span class="font-medium">Protocolo de gestión remota:</span>
-                          SNMP 1, RMON, Telnet, SNMP 3, SNMP 2c, HTTP, HTTPS, SSH
-                        </p>
-                      </div>
-                    </div>
-                    <!-- Más protocolos... -->
+                <div class="p-6 bg-white">
+                  <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                      <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-blue-50 transition-colors duration-200">
+                          <td class="px-5 py-4 font-semibold text-gray-800 border-b border-gray-200">
+                            <i class="fas fa-bolt text-blue-500 mr-2"></i>Voltage
+                          </td>
+                          <td class="px-5 py-4 text-gray-700 border-b border-gray-200 font-medium">300VAC or VDC</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50 transition-colors duration-200">
+                          <td class="px-5 py-4 font-semibold text-gray-800 border-b border-gray-200">
+                            <i class="fas fa-tachometer-alt text-blue-500 mr-2"></i>Velocidad Nominal de Propagación
+                          </td>
+                          <td class="px-5 py-4 text-gray-700 border-b border-gray-200 font-medium">70%</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50 transition-colors duration-200">
+                          <td class="px-5 py-4 font-semibold text-gray-800 border-b border-gray-200">
+                            <i class="fas fa-thermometer-half text-blue-500 mr-2"></i>Temperatura de Operación
+                          </td>
+                          <td class="px-5 py-4 text-gray-700 border-b border-gray-200 font-medium">-20°C a 60°C</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50 transition-colors duration-200">
+                          <td class="px-5 py-4 font-semibold text-gray-800">
+                            <i class="fas fa-warehouse text-blue-500 mr-2"></i>Temperatura de Almacenamiento
+                          </td>
+                          <td class="px-5 py-4 text-gray-700 font-medium">-20°C a 80°C</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </details>
 
-              <!-- Cumplimiento de Normas -->
-              <details class="group border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+              <!-- Características Adicionales -->
+              <details class="group border-2 border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white">
                 <summary
-                  class="flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 cursor-pointer transition-colors">
-                  <h3 class="font-semibold text-black flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-blue-600 transition-transform group-open:rotate-90" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                    Cumplimiento de Normas
+                  class="flex items-center justify-between p-5 bg-gradient-to-r from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 cursor-pointer transition-all duration-300">
+                  <h3 class="font-bold text-gray-800 flex items-center text-lg">
+                    <i class="fas fa-star text-blue-600 mr-3 text-xl"></i>
+                    Características Adicionales
                   </h3>
-                  <span class="text-blue-600 text-xs text-nowrap font-medium">Ver detalles</span>
+                  <span class="text-blue-600 text-sm font-semibold flex items-center gap-2">
+                    <span class="hidden group-open:inline">Ocultar</span>
+                    <span class="group-open:hidden">Ver detalles</span>
+                    <i class="fas fa-chevron-down transform group-open:rotate-180 transition-transform duration-300"></i>
+                  </span>
                 </summary>
-                <div class="p-4 bg-white">
-                  <div class="flex items-start">
-                    <div class="flex-shrink-0 h-5 w-5 text-blue-500 mt-0.5">
-                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                <div class="p-6 bg-white">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-start p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200 hover:shadow-md transition-shadow duration-200">
+                      <div class="flex-shrink-0 h-8 w-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-certificate text-white text-sm"></i>
+                      </div>
+                      <div>
+                        <p class="font-bold text-gray-800 mb-1">Categoría</p>
+                        <p class="text-gray-600">Cat 6 (Categoría 6)</p>
+                      </div>
                     </div>
-                    <div class="ml-2">
-                      <p class="text-gray-700">
-                        IEEE 802.3, IEEE 802.3u, IEEE 802.3z, IEEE 802.1D, IEEE 802.1Q, IEEE 802.3ab, IEEE 802.1p, IEEE
-                        802.3af, IEEE 802.3x, IEEE 802.3ad (LACP), IEEE 802.1w, IEEE 802.1x, IEEE 802.1s, IEEE 802.3ah,
-                        IEEE 802.1ab (LLDP)
-                      </p>
+                    <div class="flex items-start p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200 hover:shadow-md transition-shadow duration-200">
+                      <div class="flex-shrink-0 h-8 w-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-ruler text-white text-sm"></i>
+                      </div>
+                      <div>
+                        <p class="font-bold text-gray-800 mb-1">Calibre</p>
+                        <p class="text-gray-600">23AWG</p>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </details>
-
-              <!-- Certificaciones y Ambiente -->
-              <details class="group border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-                <summary
-                  class="flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 cursor-pointer transition-colors">
-                  <h3 class="font-semibold text-black flex items-center">
-                    <svg class="w-5 h-5 mr-2 text-blue-600 transition-transform group-open:rotate-90" fill="none"
-                      stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                    Certificaciones y Ambiente
-                  </h3>
-                  <span class="text-blue-600 text-xs text-nowrap font-medium">Ver detalles</span>
-                </summary>
-                <div class="p-4 bg-white grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div class="flex items-start">
-                    <div class="flex-shrink-0 h-5 w-5 text-blue-500 mt-0.5">
-                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                    <div class="flex items-start p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200 hover:shadow-md transition-shadow duration-200">
+                      <div class="flex-shrink-0 h-8 w-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-shield-alt text-white text-sm"></i>
+                      </div>
+                      <div>
+                        <p class="font-bold text-gray-800 mb-1">Chaqueta</p>
+                        <p class="text-gray-600">CMR (Riser)</p>
+                      </div>
                     </div>
-                    <div class="ml-2">
-                      <p class="text-gray-700">
-                        <span class="font-medium">Certificaciones:</span>
-                        CE, TUV GS, cUL, EN 60950, EN55022, NOM, VCCI Class A ITE, IEC 60950, EN55024, FCC Part 15, UL
-                        1950 (3), CSA 22.2 No. 950 (3)
-                      </p>
+                    <div class="flex items-start p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200 hover:shadow-md transition-shadow duration-200">
+                      <div class="flex-shrink-0 h-8 w-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-ruler-combined text-white text-sm"></i>
+                      </div>
+                      <div>
+                        <p class="font-bold text-gray-800 mb-1">Longitud</p>
+                        <p class="text-gray-600">1000ft (305m) por rollo</p>
+                      </div>
                     </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div class="flex-shrink-0 h-5 w-5 text-blue-500 mt-0.5">
-                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
+                    <div class="flex items-start p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200 hover:shadow-md transition-shadow duration-200">
+                      <div class="flex-shrink-0 h-8 w-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-bolt text-white text-sm"></i>
+                      </div>
+                      <div>
+                        <p class="font-bold text-gray-800 mb-1">Frecuencia</p>
+                        <p class="text-gray-600">Caracterizado a 600 MHz</p>
+                      </div>
                     </div>
-                    <div class="ml-2">
-                      <p class="text-gray-700">
-                        <span class="font-medium">Temperatura de operación:</span>
-                        -5 – 45 °C
-                      </p>
+                    <div class="flex items-start p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200 hover:shadow-md transition-shadow duration-200">
+                      <div class="flex-shrink-0 h-8 w-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                        <i class="fas fa-palette text-white text-sm"></i>
+                      </div>
+                      <div>
+                        <p class="font-bold text-gray-800 mb-1">Colores</p>
+                        <p class="text-gray-600">Blanco, Gris, Azul</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </details>
             </div>
-          </div>
-
-          <!-- Modal para imágenes -->
-          <div id="image-modal"
-            class="fixed hidden inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
-            <span class="absolute top-4 right-4 text-white text-3xl cursor-pointer"
-              onclick="closeModal()">&times;</span>
-            <img id="modal-image" class="max-w-full max-h-full" src="" alt="Imagen ampliada" />
           </div>
         </div>
 
         <!-- SIDEBAR DE LISTA DE PRECIOS (oculto en móvil) -->
         <aside id="links-sidebar"
-          class="hidden lg:block w-full md:w-1/5 lg:w-1/6 bg-white p-2 rounded-lg shadow-md h-[80vh] overflow-y-auto scrollbar-hide">
+          class="hidden lg:block w-full md:w-1/5 lg:w-1/6 bg-white p-4 rounded-xl shadow-lg border border-gray-200 h-[80vh] overflow-y-auto scrollbar-hide">
           <div class="links-section bg-white">
-            <h3 class="text-base font-bold text-black mb-3 border-b pb-2">
+            <h3 class="text-base font-bold text-gray-800 mb-4 border-b-2 border-blue-200 pb-3 flex items-center">
+              <i class="fas fa-list-alt text-blue-600 mr-2"></i>
               Listas de Precios
             </h3>
-            <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 ">
+            <ul class="grid grid-cols-1">
               <!-- AMP -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
+              <li class="hover:bg-blue-50 rounded-lg transition-all duration-200 hover:shadow-md">
                 <a href="https://www.ds3comunicaciones.com/AMP/precios_amp.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
+                  class="block px-3 py-2 text-sm text-blue-600 hover:text-blue-700 hover:underline font-semibold flex items-center">
+                  <i class="fas fa-file-alt mr-2"></i>
                   Lista de precios AMP
-                </a>
-              </li>
-
-              <!-- Amphenol -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/amphenol/precios_amphenol.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios Amphenol
-                </a>
-              </li>
-
-              <!-- Andrew -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/andrew/precios_andrew.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios Andrew
-                </a>
-              </li>
-
-              <!-- APC -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/apc/precios_apc.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios APC
-                </a>
-              </li>
-
-              <!-- CISCO -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/cisco/precios_cisco.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios CISCO
-                </a>
-              </li>
-
-              <!-- D-Link -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/dlink/precios_dlink.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios D-Link
-                </a>
-              </li>
-
-              <!-- Dixon -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/dixon/precios_dixon.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios Dixon
-                </a>
-              </li>
-
-              <!-- Energit -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/Energit/precios_energit.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios Energit
-                </a>
-              </li>
-
-              <!-- Fibra -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/FibreFab/precios_fibrefab.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios Fibra
-                </a>
-              </li>
-
-              <!-- HP -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/hp/precios_hp.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios HP
-                </a>
-              </li>
-
-              <!-- Mikrotik -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/mikrotik/precios_mikrotik.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios Mikrotik
-                </a>
-              </li>
-
-              <!-- Nexxt Solutions -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/nexxt_solutions/precios_nexxt_solutions.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios Nexxt Solutions
-                </a>
-              </li>
-
-              <!-- Panduit -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/panduit/precios_panduit.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios Panduit
-                </a>
-              </li>
-
-              <!-- Siemon -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/siemon/precios_siemon.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios Siemon
-                </a>
-              </li>
-
-              <!-- Teldor -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/Teldor/precios_teldor.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios Teldor
-                </a>
-              </li>
-
-              <!-- TRENDnet -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/trendnet/precios_trendnet.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios TRENDnet
-                </a>
-              </li>
-
-              <!-- Ubiquiti -->
-              <li class="hover:bg-blue-50 rounded transition-colors">
-                <a href="https://www.ds3comunicaciones.com/ubiquiti/precios_ubiquiti.html" target="_blank"
-                  class="block px-3 py-1 text-xs md:text-md text-blue-600 hover:underline font-medium">
-                  Lista de precios Ubiquiti
                 </a>
               </li>
             </ul>
@@ -844,173 +770,6 @@
         </aside>
       </div>
     </div>
-
-    <!-- PRODUCTOS SIMILARES A ESTE  -->
-    <section class="py-8 bg-gray-50">
-      <div class="container mx-auto px-4 max-w-6xl">
-        <!-- Encabezado -->
-        <div class="text-center mb-8">
-          <h2 class="text-2xl md:text-3xl font-bold text-white bg-[#049FD9] py-4 px-6 rounded-lg shadow-md inline-block">
-            También Disponible: Cisco Catalyst 9200 en stock
-          </h2>
-        </div>
-
-         <!-- Grid de productos -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Producto 1 -->
-          <a href="https://web.netperu100.com/cisco/catalyst/C9200L-24P-4G-E.html"
-            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
-            <div class="p-5 flex flex-col h-full">
-              <div class="flex-grow flex items-center justify-center mb-4 h-40">
-                <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24P-4G-E_front.jpg"
-                  alt="Switch Cisco WS-C9200L-24P-4G-E"
-                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
-              </div>
-              <div class="border-t pt-4">
-                <div class="flex justify-between flex-col items-center mb-2">
-                  <h3 class="text-lg font-bold text-gray-800">
-                    C9200L-24P-4G-E
-                  </h3>
-                </div>
-                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
-                   Switch Cisco Catalyst 9200L Essentials C9200L-24P, capa L3 con 24 puertos PoE+
-    (370W) Gigabit, 04 puertos para fibra SFP, Stacking hasta 08 equipos, Rackeable, CISCO C9200L-24P-4G-E
-                </p>
-                <div class="text-center mt-6 text-blue-600 font-semibold">
-                  Ver Producto
-                </div>
-              </div>
-            </div>
-          </a>
-          <!-- Producto 2-->
-          <a href="https://web.netperu100.com/cisco/catalyst/C9200L-24T-4X-E.html"
-            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
-            <div class="p-5 flex flex-col h-full">
-              <div class="flex-grow flex items-center justify-center mb-4 h-40">
-                <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24T-4X-E_front.jpg"
-                  alt="Switch Cisco C9200L-24T-4X-E"
-                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
-              </div>
-              <div class="border-t pt-4">
-                <div class="flex justify-between flex-col items-center mb-2">
-                  <h3 class="text-lg font-bold text-gray-800">
-                    C9200L-24T-4X-E
-                  </h3>
-                </div>
-                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
-                   Switch Cisco Catalyst 9200L Essentials C9200L-24T, capa L3 con 24 puertos Gigabit, 04 puertos 10G para fibra SFP+, Stacking hasta 08 equipos, Rackeable, CISCO C9200L-24T-4X-E
-                </p>
-                <div class="text-center mt-6 text-blue-600 font-semibold">
-                  Ver Producto
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <!-- Producto 3 -->
-          <a href="https://web.netperu100.com/cisco/catalyst/C9200L-24P-4X-E.html"
-            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
-            <div class="p-5 flex flex-col h-full">
-              <div class="flex-grow flex items-center justify-center mb-4 h-40">
-                <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-24P-4X-E_front.jpg"
-                  alt="Switch Cisco WS-C9200L-24P-4X-E"
-                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
-              </div>
-              <div class="border-t pt-4">
-                <div class="flex justify-between flex-col items-center mb-2">
-                  <h3 class="text-lg font-bold text-gray-800">
-                    C9200L-24P-4X-E
-                  </h3>
-                </div>
-                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
-                   Switch Cisco Catalyst 9200L Essentials C9200L-24P, capa L3 con 24 puertos PoE+
-    (370W) Gigabit, 04 puertos 10G para fibra SFP+, Stacking hasta 08 equipos, Rackeable, CISCO C9200L-24P-4X-E
-                </p>
-                <div class="text-center mt-6 text-blue-600 font-semibold">
-                  Ver Producto
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <!-- Producto 4 -->
-          <a href="https://web.netperu100.com/cisco/catalyst/C9200L-48T-4G-E.html"
-            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
-            <div class="p-5 flex flex-col h-full">
-              <div class="flex-grow flex items-center justify-center mb-4 h-40">
-                <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-48T-4G-E_front.jpg"
-                  alt="Switch Cisco C9200L-48T-4G-E"
-                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
-              </div>
-              <div class="border-t pt-4">
-                <div class="flex justify-between flex-col items-center mb-2">
-                  <h3 class="text-lg font-bold text-gray-800">
-                    C9200L-48T-4G-E
-                  </h3>
-                </div>
-                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
-                   Switch Cisco Catalyst 9200L Essentials C9200L-48T, capa L3 con 48 puertos Gigabit, 04 puertos para fibra SFP, Stacking hasta 08 equipos, Rackeable, CISCO C9200L-48T-4G-E
-                </p>
-                <div class="text-center mt-6 text-blue-600 font-semibold">
-                  Ver Producto
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <!-- Producto 5 -->
-          <a href="https://web.netperu100.com/cisco/catalyst/C9200L-48P-4G-E.html"
-            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
-            <div class="p-5 flex flex-col h-full">
-              <div class="flex-grow flex items-center justify-center mb-4 h-40">
-                <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-48P-4G-E_front.jpg"
-                  alt="Switch Cisco WS-C9200L-48P-4G-E"
-                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
-              </div>
-              <div class="border-t pt-4">
-                <div class="flex justify-between flex-col items-center mb-2">
-                  <h3 class="text-lg font-bold text-gray-800">
-                    C9200L-48P-4G-E
-                  </h3>
-                </div>
-                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
-                   Switch Cisco Catalyst 9200L Essentials C9200L-48P, capa L3 con 48 puertos PoE+
-    (740W) Gigabit, 04 puertos para fibra SFP, Stacking hasta 08 equipos, Rackeable, CISCO C9200L-48P-4G-E
-                </p>
-                <div class="text-center mt-6 text-blue-600 font-semibold">
-                  Ver Producto
-                </div>
-              </div>
-            </div>
-          </a>
-          <!-- Producto 6 -->
-          <a href="https://web.netperu100.com/cisco/catalyst/C9200L-48T-4X-E.html"
-            class="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-200 hover:border-blue-500">
-            <div class="p-5 flex flex-col h-full">
-              <div class="flex-grow flex items-center justify-center mb-4 h-40">
-                <img src="https://web.netperu100.com/cisco/catalyst/images/C9200L-48T-4X-E_front.jpg"
-                  alt="Switch Cisco C9200L-48T-4X-E"
-                  class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" />
-              </div>
-              <div class="border-t pt-4">
-                <div class="flex justify-between flex-col items-center mb-2">
-                  <h3 class="text-lg font-bold text-gray-800">
-                    C9200L-48T-4X-E
-                  </h3>
-                </div>
-                <p class="text-sm text-gray-600 mt-2 group-hover:text-gray-800 transition-colors line-clamp-2">
-                   Switch Cisco Catalyst 9200L Essentials C9200L-48T, capa L3 con 48 puertos Gigabit, 04 puertos 10G para fibra SFP+, Stacking hasta 08 equipos, Rackeable, CISCO C9200L-48T-4X-E
-                </p>
-                <div class="text-center mt-6 text-blue-600 font-semibold">
-                  Ver Producto
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- FOOTER -->
@@ -1067,24 +826,6 @@
                 Antenas de Panel
               </a>
             </li>
-            <li>
-              <a href="https://www.ds3comunicaciones.com/l-com/AntenaSectorial.html" target="_blank"
-                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors">
-                Antenas Sectoriales
-              </a>
-            </li>
-            <li>
-              <a href="https://ds3comunicaciones.com/l-com/pigtail/Pigtail.html" target="_blank"
-                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors">
-                Cable Pigtail
-              </a>
-            </li>
-            <li>
-              <a href="https://www.ds3comunicaciones.com/trendnet/MediaConvert.html" target="_blank"
-                class="text-gray-600 hover:text-blue-600 hover:underline transition-colors">
-                Media Converter
-              </a>
-            </li>
           </ul>
         </div>
 
@@ -1139,8 +880,62 @@
       </div>
     </div>
   </footer>
-  <!-- CARGA DE JAVASCRIPT  SECUNDARIA-->
-  <script src="./js/change_tabs.js"></script>
+
+  <!-- Modal para imágenes -->
+  <div id="image-modal"
+    class="fixed hidden inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
+    <span class="absolute top-6 right-6 text-white text-4xl cursor-pointer z-10 hover:text-gray-300 transition-colors bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center hover:bg-opacity-70"
+      onclick="closeModal()">
+      <i class="fas fa-times"></i>
+    </span>
+    <img id="modal-image" class="max-w-full max-h-full rounded-lg shadow-2xl" src="" alt="Imagen ampliada" />
+  </div>
+
+  <!-- CARGA DE JAVASCRIPT SECUNDARIA-->
+  <!-- Script change_tabs.js no necesario -->
+  
+  <!-- Scripts para funcionalidad de imágenes -->
+  <script>
+    function toExchangeImage(img) {
+      const mainImg = document.getElementById('img_main');
+      if (mainImg && img.src) {
+        mainImg.src = img.src;
+      }
+    }
+
+    function viewImage(src) {
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-image');
+      if (modal && modalImg) {
+        modalImg.src = src;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('image-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Cerrar modal con ESC
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    // Cerrar modal al hacer clic fuera de la imagen
+    document.getElementById('image-modal')?.addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+  </script>
 </body>
 
 </html>
+
