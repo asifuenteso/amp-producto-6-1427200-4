@@ -3,44 +3,40 @@
     <!-- Desktop Navbar -->
     <div class="hidden lg:flex justify-between items-center py-4">
       <!-- Logo y nombre -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center">
         <img
           src="https://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg"
-          alt="DS3 Comunicaciones"
-          class="h-12"
-        />
-        <img
-          src="https://www.ds3comunicaciones.com/cisco/images/cisco-gif.gif"
-          alt="Cisco"
-          class="h-10"
+          alt="NetPeru Logo"
+          class="h-12 mr-3"
         />
       </div>
 
       <!-- Info de contacto -->
-      <div class="flex items-center space-x-6 text-gray-700">
-        <div class="flex items-center gap-2">
-          <i class="fas fa-phone-alt text-blue-600"></i>
-          <div class="text-sm">
-            <p class="font-semibold">533-4339</p>
-            <p class="font-semibold text-gray-600">994-428-965</p>
+      <div class="flex space-x-8 text-black">
+        <div class="flex items-center">
+          <i class="fas fa-phone-alt mr-2 text-black "></i>
+          <div>
+            <p class="text-sm font-bold">533-4339</p>
+            <p class="text-sm font-bold">994-428-965</p>
           </div>
         </div>
-        <div class="flex items-center gap-2">
-          <i class="fas fa-phone-alt text-blue-600"></i>
-          <div class="text-sm">
-            <p class="font-semibold">99653-3223</p>
-            <p class="font-semibold text-gray-600">937-514-867</p>
+        <div class="flex items-center">
+          <i class="fas fa-phone-alt mr-2 text-black "></i>
+          <div>
+            <p class="text-sm font-bold">99653-3223</p>
+            <p class="text-sm font-bold">937-514-867</p>
           </div>
         </div>
-        <div class="flex items-center gap-2">
-          <i class="fas fa-envelope text-blue-600"></i>
-          <a href="mailto:netperu100@hotmail.com" class="text-sm font-semibold hover:text-blue-600 transition-colors">
-            netperu100@hotmail.com
-          </a>
+        <div class="flex items-center">
+          <i class="fas fa-envelope mr-2 text-black "></i>
+          <span class="text-sm font-bold">netperu100@hotmail.com</span>
         </div>
-        <div class="flex items-center gap-2">
-          <i class="fas fa-map-marker-alt text-blue-600"></i>
-          <span class="text-sm font-semibold">Lima, PERÚ</span>
+        <div class="flex items-center">
+          <i class="fas fa-map-marker-alt mr-2 text-black "></i>
+          <span class="text-sm font-bold">Lima, PERÚ</span>
+        </div>
+        <div>
+          <img src="https://www.ds3comunicaciones.com/cisco/images/cisco-gif.gif" alt="cisco" class="h-10" />
         </div>
       </div>
 
@@ -48,66 +44,62 @@
       <div class="flex items-center">
         <button
           id="search-button"
-          class="p-2.5 rounded-lg hover:bg-gray-100 transition-colors border border-gray-200"
+          class="p-2 rounded-full hover:bg-gray-100 transition-colors"
         >
-          <i class="fas fa-search text-gray-700"></i>
+          <i class="fas fa-search text-black"></i>
         </button>
       </div>
     </div>
 
     <!-- Mobile Navbar -->
-    <div class="lg:hidden flex flex-col">
+    <div class="lg:hidden flex flex-col gap-2">
       <!-- navbar superior  -->
-      <div class="flex justify-between items-center py-3 px-2 border-b border-gray-200">
+      <div class="flex justify-between items-center py-2">
         <!-- div izquierdo -->
-        <div class="flex items-center gap-2">
+        <div class="flex gap-1">
           <!-- boton hamburgesa -->
           <button
             id="mobile-menu-button"
-            class="p-2.5 rounded-lg hover:bg-gray-100 transition-colors"
+            class="p-2 rounded-full hover:bg-gray-300 transition-colors"
           >
-            <i class="fas fa-bars text-gray-700 text-lg"></i>
+            <i class="fas fa-bars text-black"></i>
           </button>
 
           <!-- Logo -->
           <div class="flex items-center gap-2">
             <img
               src="https://www.ds3comunicaciones.com/mikrotik/images/Logo1.jpg"
-              alt="DS3 Comunicaciones"
-              class="h-9 md:h-10"
+              alt="NetPeru Logo"
+              class="h-10"
             />
             <img
               src="http://www.ds3comunicaciones.com/cisco/images/logo-cisco.gif"
-              alt="Cisco"
-              class="h-9 md:h-10"
+              alt="NetPeru Logo"
+              class="h-10"
             />
           </div>
         </div>
 
-        <!-- Botón buscar -->
+        <!-- Botones buscar -->
         <button
           id="mobile-search-button"
-          class="p-2.5 rounded-lg hover:bg-gray-100 transition-colors border border-gray-300 flex items-center justify-center"
+          class="p-2 rounded-md hover:bg-gray-300 transition-colors border border-black flex gap-3 items-center"
         >
-          <i class="fas fa-search text-gray-700"></i>
+          <i class="fas fa-search text-black"></i>
         </button>
       </div>
 
-      <!-- navbar inferior - Información de contacto -->
-      <div class="bg-gray-50 py-2.5 px-3 border-b border-gray-200">
-        <div class="flex flex-wrap items-center gap-3 text-xs">
-          <div class="flex items-center gap-1.5">
-            <i class="fas fa-phone-alt text-gray-600 text-xs"></i>
-            <a href="tel:996533223" class="text-gray-700 font-medium hover:text-blue-600">996 533 223</a>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <i class="fas fa-phone-alt text-gray-600 text-xs"></i>
-            <a href="tel:994428965" class="text-gray-700 font-medium hover:text-blue-600">994 428 965</a>
-          </div>
-          <div class="flex items-center gap-1.5">
-            <i class="fas fa-envelope text-gray-600 text-xs"></i>
-            <a href="mailto:netperu100@hotmail.com" class="text-gray-700 font-medium hover:text-blue-600 truncate">netperu100@hotmail.com</a>
-          </div>
+      <!-- nabvar inferior -->
+      <div class="py-2 pl-3">
+        <div class="flex items-start">
+          <i class="fas fa-phone-alt mt-1 mr-1 text-black"></i>
+          <p class="">996533223</p>
+          <i class="pl-4 fas fa-phone-alt mt-1 mr-1 text-black"></i>
+          <p class="">994428965</p>
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-envelope mr-1 text-black"></i>
+          <span>netperu100@hotmail.com</span>
         </div>
       </div>
     </div>
